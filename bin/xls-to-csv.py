@@ -34,7 +34,7 @@ def process_file(input_file, output_file):
             if match:
                 real_name = match.group(1).strip()
             else:
-                real_name = line.split(" ")[0]
+                real_name = line.split("\t")[0]
 
             # URL과 URL 앞의 문자 삭제
             line = re.sub(
@@ -59,18 +59,20 @@ def process_file(input_file, output_file):
 
             name = (
                 parts[0]
-                if len(parts) > 0 and "@" not in parts[0] and "010-" not in parts[0]
+                if len(parts) > 1 and "@" not in parts[0] and "010-" not in parts[0]
                 else real_name
             )
 
             company = (
                 parts[1]
-                if len(parts) > 1 and "@" not in parts[1] and "010-" not in parts[1]
+                if len(parts) > 2 and "@" not in parts[1] and "010-" not in parts[1]
                 else ""
             )
 
             # 결과 추가
             processed_data.append(f"{name},{company},{email},{phone}")
+
+            print(f"{name},{company},{email},{phone}")
 
     # CSV 파일로 저장
     with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
