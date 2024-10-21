@@ -9,7 +9,7 @@ AI 엔지니어링 소모임은 생성형 AI 시대에 새롭게 바뀌는 실�
 ### AWSKRUG #AIEngineering 소모임 (2024년 10월 29일)
 * 1부: Prompt Engineering & Bedrock Prompt Flows (장문기)
 * 2부: Amazon Q Developer 소개 (윤평호)
-* https://www.meetup.com/ko-KR/awskrug/events/303855587/
+* https://www.meetup.com/awskrug/events/303855587/
 
 ### AWSKRUG #AIEngineering 소모임 (2024년 9월 25일)
 * 튜토리얼 - 생성형 AI 시대 새로운 엔지니어링 기법 (윤석찬)
