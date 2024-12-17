@@ -7,8 +7,8 @@ AI 엔지니어링 소모임은 생성형 AI 시대에 새롭게 바뀌는 실�
 ## Meetups
 
 ### AWSKRUG #AIEngineering 모임 - 12월 17일(화) AWS re:Invent 2024 re:Cap
-* 1부: AWS re:Invent 2024 re:Cap
-* 2부: AWS re:Invent 2024 re:Cap
+* 1부: AWS re:Invent 2024 re:Cap - Bedrock (장문기)
+* 2부: AWS re:Invent 2024 re:Cap - Q Developer (김현민)
 * https://www.meetup.com/awskrug/events/304519465/
 
 ### AWSKRUG #AIEngineering 소모임 (2024년 10월 29일)
