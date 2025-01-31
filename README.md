@@ -7,26 +7,32 @@
 ## Meetups 2025
 
 ### AWSKRUG #AIEngineering 소모임 (2025년 1월 22일)
+* https://www.meetup.com/awskrug/events/305372486/
 * Chat Driven Development - 정도현
   * 이번 모임에서는 Windsurf IDE를 사용해서 라이브 코딩을 진행하며, 최신 GenAI 개발 도구와 서버리스 아키텍처를 이용해 사이드 프로젝트를 효과적으로 수행하는 방법에 대한 노하우를 공유합니다.
-* https://www.meetup.com/awskrug/events/305372486/
+  * 데모링크: [https://github.com/awskrug/aiengineering-demo](https://github.com/awskrug/aiengineering-demo)
 
 ## Meetups 2024
 
 ### AWSKRUG #AIEngineering 모임 - 12월 17일(화) AWS re:Invent 2024 re:Cap
-* 1부: AWS re:Invent 2024 re:Cap - Bedrock (장문기)
-* 2부: AWS re:Invent 2024 re:Cap - Q Developer (김현민)
 * https://www.meetup.com/awskrug/events/304519465/
+* 1부: AWS re:Invent 2024 re:Cap - Bedrock (장문기)
+  * 발표자료: [pdf](./docs/241217-AWS-reInvent-2024-reCap-Bedrock.pdf)
+* 2부: AWS re:Invent 2024 re:Cap - Q Developer (김현민)
+  * 발표자료: [pdf](./docs/241217-AWS-reInvent-2024-reCap-Q-Developer.pdf)
+* 참고자료
+  * Amazon Q Deverloper Session : <https://lilys.ai/collections/20141>
+  * Amazon Bedrock Session : <https://lilys.ai/collections/21363>
 
 ### AWSKRUG #AIEngineering 소모임 (2024년 10월 29일)
+* https://www.meetup.com/awskrug/events/303855587/
 * 1부: Prompt Engineering & Bedrock Prompt Flows (장문기)
   * 발표자료: [pdf](./docs/241029-Prompt-Engineering-and-Bedrock-Prompt-Flows.pdf)
 * 2부: Amazon Q Developer 소개 (윤평호)
-* https://www.meetup.com/awskrug/events/303855587/
 
 ### AWSKRUG #AIEngineering 소모임 (2024년 9월 25일)
+* https://www.meetup.com/awskrug/events/303205066/
 * 튜토리얼 - 생성형 AI 시대 새로운 엔지니어링 기법 (윤석찬)
   * 발표자료: [pdf](./docs/240925-AI-Engineering.pdf)
 * 사례발표 - AWSKRUG Gurumi 구현 방법 (유정열)
   * 발표자료: [pdf](./docs/240925-Gurumi-Bot-with-RAG.pdf)
-* https://www.meetup.com/awskrug/events/303205066/
