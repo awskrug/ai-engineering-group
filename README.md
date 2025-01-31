@@ -17,9 +17,9 @@
 ### AWSKRUG #AIEngineering 모임 - 12월 17일(화) AWS re:Invent 2024 re:Cap
 * https://www.meetup.com/awskrug/events/304519465/
 * 1부: AWS re:Invent 2024 re:Cap - Bedrock (장문기)
-  * 발표자료: [pdf](./docs/241217-AWS-reInvent-2024-reCap-Bedrock.pdf)
+  * 발표자료: [pdf](https://drive.google.com/file/d/1WuoOpuiM34URwqkYNIkZhqsqNyL4jSrv/view?usp=sharing)
 * 2부: AWS re:Invent 2024 re:Cap - Q Developer (김현민)
-  * 발표자료: [pdf](./docs/241217-AWS-reInvent-2024-reCap-Q-Developer.pdf)
+  * 발표자료: [pdf](https://drive.google.com/file/d/1VtwIJ4AfrTYG2yUe0WGdWlyK-wRsM8UC/view?usp=sharing)
 * 참고자료
   * Amazon Q Deverloper Session : <https://lilys.ai/collections/20141>
   * Amazon Bedrock Session : <https://lilys.ai/collections/21363>
