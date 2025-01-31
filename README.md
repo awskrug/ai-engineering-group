@@ -20,10 +20,13 @@
 
 ### AWSKRUG #AIEngineering 소모임 (2024년 10월 29일)
 * 1부: Prompt Engineering & Bedrock Prompt Flows (장문기)
+  * 발표자료: [pdf](./docs/241029-Prompt-Engineering-and-Bedrock-Prompt-Flows.pdf)
 * 2부: Amazon Q Developer 소개 (윤평호)
 * https://www.meetup.com/awskrug/events/303855587/
 
 ### AWSKRUG #AIEngineering 소모임 (2024년 9월 25일)
 * 튜토리얼 - 생성형 AI 시대 새로운 엔지니어링 기법 (윤석찬)
+  * 발표자료: [pdf](./docs/240925-AI-Engineering.pdf)
 * 사례발표 - AWSKRUG Gurumi 구현 방법 (유정열)
+  * 발표자료: [pdf](./docs/240925-Gurumi-Bot-with-RAG.pdf)
 * https://www.meetup.com/awskrug/events/303205066/
