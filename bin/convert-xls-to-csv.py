@@ -19,11 +19,22 @@ def parse_args():
 
 
 def process_file(input_file, output_file):
-    with open(input_file, "r", encoding="utf-8") as file:
-        lines = file.readlines()
+    try:
+        with open(input_file, "r", encoding="utf-8") as file:
+            lines = file.readlines()
 
-    # 첫 번째 줄 삭제
-    lines = lines[1:]
+        if not lines:
+            print(f"Error: {input_file} is empty")
+            return
+
+        # 첫 번째 줄 삭제
+        lines = lines[1:]
+    except FileNotFoundError:
+        print(f"Error: {input_file} not found")
+        return
+    except Exception as e:
+        print(f"Error reading file: {str(e)}")
+        return
 
     processed_data = []
 

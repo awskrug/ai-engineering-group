@@ -6,6 +6,11 @@
 
 ## Meetups 2025
 
+### AWSKRUG #AIEngineering 소모임 (2025년 3월 13일) 프롬프트 엔지니어링 핸즈온
+* https://www.meetup.com/awskrug/events/306528634/
+* Anthropic Claude v3 프롬프트 엔지니어링 핸즈온 (유정열)
+  * 발표자료: [Workshop Studio](https://catalog.workshops.aws/prompt-eng-claude3/ko-KR)
+
 ### AWSKRUG #AIEngineering 소모임 (2025년 1월 22일)
 * https://www.meetup.com/awskrug/events/305372486/
 * Chat Driven Development - 정도현
