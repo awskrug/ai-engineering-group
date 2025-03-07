@@ -32,8 +32,12 @@ def process_file(input_file, output_file):
     processed_data = []
 
     for name, value in zip(names, field_25_values):
-        # 모든 공백 제거
-        value = value.replace(" ", "").strip()
+        # NaN 값 체크
+        if pd.isna(value) or value == "":
+            continue
+
+        # 문자열로 변환하고 모든 공백 제거
+        value = str(value).replace(" ", "").strip()
 
         # 전화번호 형식 변환
         value = re.sub(r"(\d{3})(\d{4})(\d{4})", r"\1-\2-\3", value)
