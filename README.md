@@ -9,7 +9,7 @@
 ### AWSKRUG #AIEngineering 소모임 (2025년 4월 9일) Amazon Q Dev CLI를 이용한 바이브 코딩
 * https://www.meetup.com/awskrug/events/306928642/
 * Amazon Q Developer CLI와 함께하는 바이브코딩 (실습) - 윤석찬 (channy)
-  * 발표자료: [pdf](https://drive.google.com/file/d/1l4pKiPOv8jAi0YIg0ojVvuyLg_-3Cr-V/view?usp=sharing)
+  * 발표자료: [pdf](./docs/202504-VibeCoding-Q-CLI.pdf)
 
 ### AWSKRUG #AIEngineering 소모임 (2025년 3월 13일) 프롬프트 엔지니어링 핸즈온
 * https://www.meetup.com/awskrug/events/306528634/
