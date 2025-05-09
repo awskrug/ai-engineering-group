@@ -28,6 +28,7 @@ AI 엔지니어링 소모임은 생성형 AI 시대에 새롭게 바뀌는 실�
 * **모임 링크**: [Meetup](https://www.meetup.com/awskrug/events/307266851/)
 * **발표내용**:
   * MCP on AWS - 윤평호(AWS 커뮤니티 빌더)
+  * 발표자료: [Google Slides](https://docs.google.com/presentation/d/e/2PACX-1vQZq0IzZa3eiDlZW5QtshlVLExMBwAucA1PMWr1VRNUCk5wV8JncjIewDdbRqayqE_33LnQLkuWVu4W/pub?slide=id.g3538d9b3fb8_2_228)
 
 #### 2025년 4월 - Amazon Q Dev CLI를 이용한 바이브 코딩
 * **날짜**: 2025년 4월 9일
