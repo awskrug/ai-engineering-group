@@ -23,6 +23,13 @@ AI 엔지니어링 소모임은 생성형 AI 시대에 새롭게 바뀌는 실�
 
 ### 2025년 모임
 
+#### 2025년 6월 - MCP on AWS: Hands-on Lab (실습)
+* **날짜**: 2025년 6월 4일
+* **모임 링크**: [Meetup](https://www.meetup.com/awskrug/events/307856695/)
+* **발표내용**:
+  * MCP on AWS: Hands-on Lab (실습) - 신정섭 (AWS)
+  * 발표자료: [Workshop Studio](https://catalog.us-east-1.prod.workshops.aws/workshops/4bfd0cd5-45d4-4183-ab13-6992de68d888/ko-KR)
+
 #### 2025년 5월 - MCP on AWS
 * **날짜**: 2025년 5월 7일
 * **모임 링크**: [Meetup](https://www.meetup.com/awskrug/events/307266851/)
