@@ -32,7 +32,7 @@ AI 엔지니어링 소모임은 생성형 AI 시대에 새롭게 바뀌는 실�
 
 #### 2025년 7월 - 나만의 서버리스 GenAI 앱 구축하기 Hands-on Labs (실습)
 * **날짜**: 2025년 7월 23일
-* **모임 링크**: [Meetup](https://www.meetup.com/awskrug/events/307856695/)
+* **모임 링크**: [Meetup](https://www.meetup.com/awskrug/events/308422293/)
 * **발표내용**:
   * 로우코드/노코드로 서버리스 Agentic AI 애플리케이션 빠르게 구축하기 (실습) - 조현우 (AWS)
   * 발표자료: [pdf](docs/20250723%20AWSKRUG%20-%20GenAI%20Workshop.pdf), [Workshop Studio](https://catalog.us-east-1.prod.workshops.aws/workshops/c8b1983a-a259-462e-bd9e-065668e6ea50/ko-KR)
