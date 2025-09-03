@@ -27,7 +27,7 @@ AI 엔지니어링 소모임은 생성형 AI 시대에 새롭게 바뀌는 실�
 * **날짜**: 2025년 8월 21일
 * **모임 링크**: [Meetup](https://www.meetup.com/awskrug/events/310381376)
 * **발표내용**:
-  * Sprit of Kiro (실습) - 김성한 (AWS)
+  * Spirit of Kiro (실습) - 김성한 (AWS)
   * 발표자료: [pdf](docs/20250821_AWSKRUG_AIENG_KIRO.pdf)
 
 #### 2025년 7월 - 나만의 서버리스 GenAI 앱 구축하기 Hands-on Labs (실습)
