@@ -1,0 +1,39 @@
+{
+  "deployment_id": "",
+  "region": "",
+  "gateway_id": "",
+  "gateway_url": "",
+  "lambda_function_name": "",
+  "request_interceptor_name": "",
+  "lambda_role_name": "",
+  "gateway_name": "",
+  "permissions_table_name": "",
+  "user_info_table_name": "",
+  "user_pool_id": "",
+  "discovery_url": "",
+  "token_url": "",
+  "clients": {
+    "hr-manager": {
+      "client_id": "",
+      "client_secret": "",
+      "description": ""
+    },
+    "employee": {
+      "client_id": "",
+      "client_secret": "",
+      "description": ""
+    }
+  },
+  "client_ids": {
+    "hr-manager": "",
+    "employee": ""
+  },
+  "guardrail_id": "",
+  "guardrail_version": "",
+  "guardrail_arn": "",
+  "lambda_arn": "",
+  "request_lambda_arn": "",
+  "target_ids": [],
+  "deployed_tools": [],
+  "tool_role_name": ""
+}

@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 550">
+  <!-- Definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#232F3E"/>
+    </marker>
+    <marker id="arrowhead-gray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#999999"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="550" y="30" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="18" font-weight="bold" fill="#232F3E" text-anchor="middle">REQUEST Interceptor → Policy Engine 마이그레이션</text>
+
+  <!-- LEFT SIDE: BEFORE -->
+  <g id="before">
+    <!-- Section Title -->
+    <text x="250" y="70" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="16" font-weight="bold" fill="#DD344C" text-anchor="middle">Before: 이중 인터셉터</text>
+    
+    <!-- AWS Cloud Boundary -->
+    <rect x="50" y="90" width="400" height="420" fill="none" stroke="#232F3E" stroke-width="2" stroke-dasharray="8,4" rx="12"/>
+    <text x="60" y="110" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="bold" fill="#232F3E">AWS Cloud</text>
+
+    <!-- Client -->
+    <rect x="70" y="140" width="80" height="50" fill="#FFFFFF" stroke="#232F3E" stroke-width="1" rx="6"/>
+    <text x="110" y="170" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#232F3E" text-anchor="middle">Client</text>
+
+    <!-- Gateway Box -->
+    <rect x="180" y="130" width="250" height="260" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4,2" rx="8"/>
+    <text x="305" y="150" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="bold" fill="#666666" text-anchor="middle">Gateway</text>
+
+    <!-- REQUEST Interceptor -->
+    <rect x="200" y="170" width="210" height="60" fill="#FDE8E8" stroke="#DD344C" stroke-width="2" rx="6"/>
+    <text x="305" y="195" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#DD344C" text-anchor="middle">① REQUEST Interceptor</text>
+    <text x="305" y="215" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#666666" text-anchor="middle">DynamoDB 권한 조회</text>
+
+    <!-- MCP Tool Lambdas -->
+    <rect x="200" y="250" width="210" height="50" fill="#E6F2FF" stroke="#147EBA" stroke-width="2" rx="6"/>
+    <text x="305" y="270" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#147EBA" text-anchor="middle">② MCP Tool Lambdas</text>
+
+    <!-- RESPONSE Interceptor -->
+    <rect x="200" y="320" width="210" height="60" fill="#FDE8E8" stroke="#DD344C" stroke-width="2" rx="6"/>
+    <text x="305" y="345" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#DD344C" text-anchor="middle">③ RESPONSE Interceptor</text>
+    <text x="305" y="365" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#666666" text-anchor="middle">PII 마스킹 + tools/list 필터링</text>
+
+    <!-- DynamoDB -->
+    <rect x="180" y="420" width="250" height="70" fill="#E8F5E9" stroke="#3F8624" stroke-width="2" rx="6"/>
+    <text x="305" y="445" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#3F8624" text-anchor="middle">Amazon DynamoDB</text>
+    <text x="305" y="465" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#666666" text-anchor="middle">EmployeePermissions</text>
+
+    <!-- Arrows -->
+    <line x1="150" y1="165" x2="180" y2="165" stroke="#232F3E" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="305" y1="230" x2="305" y2="250" stroke="#232F3E" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="305" y1="300" x2="305" y2="320" stroke="#232F3E" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="305" y1="200" x2="305" y2="420" stroke="#999999" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arrowhead-gray)"/>
+
+    <!-- Interceptor Count -->
+    <text x="250" y="525" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#DD344C" text-anchor="middle">인터셉터: 2개</text>
+  </g>
+
+  <!-- CENTER: MIGRATION ARROW -->
+  <g id="migration">
+    <line x1="470" y1="300" x2="610" y2="300" stroke="#FF9900" stroke-width="4" marker-end="url(#arrowhead)"/>
+    <text x="540" y="290" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="16" font-weight="bold" fill="#FF9900" text-anchor="middle">마이그레이션</text>
+  </g>
+
+  <!-- RIGHT SIDE: AFTER -->
+  <g id="after">
+    <!-- Section Title -->
+    <text x="850" y="70" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="16" font-weight="bold" fill="#8C4FFF" text-anchor="middle">After: Policy Engine</text>
+    
+    <!-- AWS Cloud Boundary -->
+    <rect x="650" y="90" width="400" height="420" fill="none" stroke="#232F3E" stroke-width="2" stroke-dasharray="8,4" rx="12"/>
+    <text x="660" y="110" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="bold" fill="#232F3E">AWS Cloud</text>
+
+    <!-- Client -->
+    <rect x="670" y="140" width="80" height="50" fill="#FFFFFF" stroke="#232F3E" stroke-width="1" rx="6"/>
+    <text x="710" y="170" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#232F3E" text-anchor="middle">Client</text>
+
+    <!-- Gateway Box -->
+    <rect x="780" y="130" width="250" height="260" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4,2" rx="8"/>
+    <text x="905" y="150" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="bold" fill="#666666" text-anchor="middle">Gateway</text>
+
+    <!-- Cedar Policy Engine -->
+    <rect x="800" y="170" width="210" height="60" fill="#F2E8FF" stroke="#8C4FFF" stroke-width="2" rx="6"/>
+    <text x="905" y="195" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#8C4FFF" text-anchor="middle">① Policy Engine</text>
+    <text x="905" y="215" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#666666" text-anchor="middle">client_id 기반 정책</text>
+
+    <!-- MCP Tool Lambdas -->
+    <rect x="800" y="250" width="210" height="50" fill="#E6F2FF" stroke="#147EBA" stroke-width="2" rx="6"/>
+    <text x="905" y="270" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#147EBA" text-anchor="middle">② MCP Tool Lambdas</text>
+
+    <!-- RESPONSE Interceptor -->
+    <rect x="800" y="320" width="210" height="60" fill="#FDE8E8" stroke="#DD344C" stroke-width="2" rx="6"/>
+    <text x="905" y="345" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#DD344C" text-anchor="middle">③ RESPONSE Interceptor</text>
+    <text x="905" y="365" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#666666" text-anchor="middle">PII 마스킹 + tools/list 필터링</text>
+
+    <!-- Removed REQUEST Interceptor (grayed out with strikethrough) -->
+    <rect x="800" y="420" width="210" height="60" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4,2" rx="6" opacity="0.5"/>
+    <text x="905" y="445" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" fill="#999999" text-anchor="middle" text-decoration="line-through">REQUEST Interceptor</text>
+    <text x="905" y="465" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#999999" text-anchor="middle">제거됨</text>
+
+    <!-- Arrows -->
+    <line x1="750" y1="165" x2="780" y2="165" stroke="#232F3E" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="905" y1="230" x2="905" y2="250" stroke="#232F3E" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="905" y1="300" x2="905" y2="320" stroke="#232F3E" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- Interceptor Count -->
+    <text x="850" y="525" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#8C4FFF" text-anchor="middle">인터셉터: 1개 ✓</text>
+  </g>
+</svg>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 500">
+  <!-- Definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#232F3E"/>
+    </marker>
+    <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#FF9900"/>
+    </marker>
+  </defs>
+  
+  <!-- AWS Cloud Boundary -->
+  <rect x="20" y="20" width="910" height="460" rx="12" fill="none" stroke="#232F3E" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="40" y="45" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#232F3E">AWS Cloud</text>
+  
+  <!-- Client Apps Zone -->
+  <rect x="50" y="80" width="200" height="360" rx="8" fill="#F5F5F5" stroke="#CCCCCC" stroke-dasharray="4,2"/>
+  <text x="120" y="105" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#666666" text-anchor="middle">Client Applications</text>
+  
+  <!-- HR Manager App -->
+  <rect x="70" y="130" width="160" height="100" rx="6" fill="#FFFFFF" stroke="#DD6B10" stroke-width="2"/>
+  <text x="150" y="160" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#232F3E" text-anchor="middle">HR Manager App</text>
+  <text x="150" y="180" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#666666" text-anchor="middle">Role: HR_MANAGER</text>
+  <text x="150" y="200" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#999999" text-anchor="middle">전체 직원 정보 접근</text>
+  
+  <!-- Employee App -->
+  <rect x="70" y="260" width="160" height="100" rx="6" fill="#FFFFFF" stroke="#DD6B10" stroke-width="2"/>
+  <text x="150" y="290" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#232F3E" text-anchor="middle">Employee App</text>
+  <text x="150" y="310" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#666666" text-anchor="middle">Role: EMPLOYEE</text>
+  <text x="150" y="330" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#999999" text-anchor="middle">본인 정보만 접근</text>
+  
+  <!-- Amazon Cognito User Pool -->
+  <rect x="340" y="180" width="200" height="140" rx="6" fill="#FFF3E0" stroke="#DD6B10" stroke-width="2"/>
+  <text x="440" y="210" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#232F3E" text-anchor="middle">Amazon Cognito</text>
+  <text x="440" y="230" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="bold" fill="#232F3E" text-anchor="middle">User Pool</text>
+  <text x="440" y="260" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#666666" text-anchor="middle">인증 및 토큰 발급</text>
+  <text x="440" y="280" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#999999" text-anchor="middle">Client Credentials Flow</text>
+  <text x="440" y="295" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#999999" text-anchor="middle">JWT Access Token</text>
+  
+  <!-- Amazon Bedrock Gateway -->
+  <rect x="650" y="180" width="230" height="140" rx="6" fill="#F2E8FF" stroke="#8C4FFF" stroke-width="2"/>
+  <text x="765" y="210" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#232F3E" text-anchor="middle">Amazon Bedrock</text>
+  <text x="765" y="230" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="bold" fill="#232F3E" text-anchor="middle">AgentCore Gateway</text>
+  <text x="765" y="260" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#666666" text-anchor="middle">JWT 검증 및 API 처리</text>
+  <text x="765" y="280" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#999999" text-anchor="middle">역할 기반 권한 제어</text>
+  
+  <!-- Flow 1: HR Manager to Cognito -->
+  <path d="M 230 170 L 330 230" stroke="#FF9900" stroke-width="2" fill="none" marker-end="url(#arrowhead-orange)"/>
+  <circle cx="245" cy="185" r="12" fill="#FF9900"/>
+  <text x="245" y="191" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">①</text>
+  <text x="280" y="185" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#666666">인증 요청</text>
+  
+  <!-- Flow 1: Employee to Cognito -->
+  <path d="M 230 300 L 330 270" stroke="#FF9900" stroke-width="2" fill="none" marker-end="url(#arrowhead-orange)"/>
+  
+  <!-- Flow 2: Cognito to HR Manager -->
+  <path d="M 340 240 L 240 200" stroke="#3F8624" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <circle cx="310" cy="230" r="12" fill="#3F8624"/>
+  <text x="310" y="236" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">②</text>
+  <text x="280" y="215" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#666666">JWT 발급</text>
+  
+  <!-- Flow 2: Cognito to Employee -->
+  <path d="M 340 280 L 240 320" stroke="#3F8624" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Flow 3: HR Manager to Gateway -->
+  <path d="M 230 150 Q 440 120 640 220" stroke="#147EBA" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <circle cx="440" cy="140" r="12" fill="#147EBA"/>
+  <text x="440" y="146" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">③</text>
+  <text x="440" y="125" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#666666" text-anchor="middle">Bearer JWT</text>
+  
+  <!-- Flow 3: Employee to Gateway -->
+  <path d="M 230 340 Q 440 380 640 280" stroke="#147EBA" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="440" y="395" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#666666" text-anchor="middle">Bearer JWT</text>
+  
+  <!-- Legend -->
+  <rect x="50" y="450" width="880" height="30" rx="4" fill="#FFFFFF" stroke="#CCCCCC"/>
+  <text x="60" y="470" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="bold" fill="#232F3E">인증 흐름:</text>
+  <text x="130" y="470" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#666666">① Client Credentials 인증 요청</text>
+  <text x="330" y="470" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#666666">② JWT Access Token 발급</text>
+  <text x="530" y="470" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#666666">③ Bearer JWT로 API 호출 및 검증</text>
+</svg>

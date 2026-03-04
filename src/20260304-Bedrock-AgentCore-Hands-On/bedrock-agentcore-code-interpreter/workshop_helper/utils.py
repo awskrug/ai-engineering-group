@@ -1,0 +1,752 @@
+import os
+import base64
+import hashlib
+import hmac
+import json
+import os
+from typing import Any, Dict
+
+import boto3
+from botocore.exceptions import ClientError
+import yaml
+from boto3.session import Session
+
+
+def _resolve_region() -> str:
+    """Boto3 Session 우선, fallback으로 환경변수 REGION 사용."""
+    session_region = Session().region_name
+    if session_region:
+        return session_region
+    return os.environ.get("REGION", "")
+
+
+username = "testuser"
+sm_name = "krug_code_interpreter"
+
+REGION = _resolve_region()
+role_name = f"KrugAgentCoreWorkshopeRole-{REGION}"
+policy_name = f"KrugAgentCoreWorkshopPolicy-{REGION}"
+
+
+def get_ssm_parameter(name: str, with_decryption: bool = True) -> str:
+    region = _resolve_region()
+    ssm = boto3.client("ssm", region_name=region)
+
+    response = ssm.get_parameter(Name=name, WithDecryption=with_decryption)
+
+    return response["Parameter"]["Value"]
+
+
+def put_ssm_parameter(
+    name: str, value: str, parameter_type: str = "String", with_encryption: bool = False
+) -> None:
+    region = _resolve_region()
+    ssm = boto3.client("ssm", region_name=region)
+
+    put_params = {
+        "Name": name,
+        "Value": value,
+        "Type": parameter_type,
+        "Overwrite": True,
+    }
+
+    if with_encryption:
+        put_params["Type"] = "SecureString"
+
+    ssm.put_parameter(**put_params)
+
+
+def delete_ssm_parameter(name: str) -> None:
+    region = _resolve_region()
+    ssm = boto3.client("ssm", region_name=region)
+    try:
+        ssm.delete_parameter(Name=name)
+    except ssm.exceptions.ParameterNotFound:
+        pass
+
+
+def get_aws_region() -> str:
+    return _resolve_region()
+
+
+def get_aws_account_id() -> str:
+    region = _resolve_region()
+    sts = boto3.client("sts", region_name=region)
+    return sts.get_caller_identity()["Account"]
+
+
+def get_cognito_client_secret() -> str:
+    region = _resolve_region()
+    client = boto3.client("cognito-idp", region_name=region)
+    response = client.describe_user_pool_client(
+        UserPoolId=get_ssm_parameter("/krug/codeinterpreter/agentcore/pool_id"),
+        ClientId=get_ssm_parameter("/krug/codeinterpreter/agentcore/client_id"),
+    )
+    return response["UserPoolClient"]["ClientSecret"]
+
+
+def read_config(file_path: str) -> Dict[str, Any]:
+    """
+    Read configuration from a file path. Supports JSON, YAML, and YML formats.
+
+    Args:
+        file_path (str): Path to the configuration file
+
+    Returns:
+        Dict[str, Any]: Configuration data as a dictionary
+
+    Raises:
+        FileNotFoundError: If the file doesn't exist
+        ValueError: If the file format is not supported or invalid
+        yaml.YAMLError: If YAML parsing fails
+        json.JSONDecodeError: If JSON parsing fails
+    """
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"Configuration file not found: {file_path}")
+
+    # Get file extension to determine format
+    _, ext = os.path.splitext(file_path.lower())
+
+    try:
+        with open(file_path, "r", encoding="utf-8") as file:
+            if ext == ".json":
+                return json.load(file)
+            elif ext in [".yaml", ".yml"]:
+                return yaml.safe_load(file)
+            else:
+                # Try to auto-detect format by attempting JSON first, then YAML
+                content = file.read()
+                file.seek(0)
+
+                # Try JSON first
+                try:
+                    return json.loads(content)
+                except json.JSONDecodeError:
+                    # Try YAML
+                    try:
+                        return yaml.safe_load(content)
+                    except yaml.YAMLError:
+                        raise ValueError(
+                            f"Unsupported configuration file format: {ext}. "
+                            f"Supported formats: .json, .yaml, .yml"
+                        )
+
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON in configuration file {file_path}: {e}")
+    except yaml.YAMLError as e:
+        raise ValueError(f"Invalid YAML in configuration file {file_path}: {e}")
+    except Exception as e:
+        raise ValueError(f"Error reading configuration file {file_path}: {e}")
+
+
+def save_krug_codeinterpreter_secret(secret_value):
+    """Save a secret in AWS Secrets Manager."""
+    region = _resolve_region()
+    secrets_client = boto3.client("secretsmanager", region_name=region)
+
+    try:
+        secrets_client.create_secret(
+            Name=sm_name,
+            SecretString=secret_value,
+            Description="Secret containing the Cognito Configuration for the KRUG AgentCore CodeInterpreter Session",
+        )
+        print("✅ Created secret")
+    except secrets_client.exceptions.ResourceExistsException:
+        secrets_client.update_secret(SecretId=sm_name, SecretString=secret_value)
+        print("✅ Updated existing secret")
+    except Exception as e:
+        print(f"❌ Error saving secret: {str(e)}")
+        return False
+    return True
+
+
+def get_krug_codeinterpreter_secret():
+    """Get a secret value from AWS Secrets Manager."""
+    region = _resolve_region()
+    secrets_client = boto3.client("secretsmanager", region_name=region)
+    try:
+        response = secrets_client.get_secret_value(SecretId=sm_name)
+        return response["SecretString"]
+    except Exception as e:
+        print(f"❌ Error getting secret: {str(e)}")
+        return None
+
+
+def get_or_create_cognito_pool(refresh_token=False):
+    # Initialize Cognito client
+    region = _resolve_region()
+    cognito_client = boto3.client("cognito-idp", region_name=region)
+    try:
+        # check for existing cognito pool
+        cognito_config_str = get_krug_codeinterpreter_secret()
+        cognito_config = json.loads(cognito_config_str)
+        if refresh_token:
+            cognito_config["bearer_token"] = reauthenticate_user(
+                cognito_config["client_id"], cognito_config["client_secret"]
+            )
+        return cognito_config
+    except Exception:
+        print("No existing cognito config found. Creating a new one..")
+
+    try:
+        # Create User Pool
+        user_pool_response = cognito_client.create_user_pool(
+            PoolName="MCPServerPool", Policies={"PasswordPolicy": {"MinimumLength": 8}}
+        )
+        pool_id = user_pool_response["UserPool"]["Id"]
+        # Create App Client
+        app_client_response = cognito_client.create_user_pool_client(
+            UserPoolId=pool_id,
+            ClientName="MCPServerPoolClient",
+            GenerateSecret=True,
+            ExplicitAuthFlows=[
+                "ALLOW_USER_PASSWORD_AUTH",
+                "ALLOW_REFRESH_TOKEN_AUTH",
+                "ALLOW_USER_SRP_AUTH",
+            ],
+        )
+        print(app_client_response["UserPoolClient"])
+        client_id = app_client_response["UserPoolClient"]["ClientId"]
+        client_secret = app_client_response["UserPoolClient"]["ClientSecret"]
+
+        # Create User
+        cognito_client.admin_create_user(
+            UserPoolId=pool_id,
+            Username=username,
+            TemporaryPassword="Temp123!",
+            MessageAction="SUPPRESS",
+        )
+
+        # Set Permanent Password
+        cognito_client.admin_set_user_password(
+            UserPoolId=pool_id,
+            Username=username,
+            Password="MyPassword123!",
+            Permanent=True,
+        )
+
+        message = bytes(username + client_id, "utf-8")
+        key = bytes(client_secret, "utf-8")
+        secret_hash = base64.b64encode(
+            hmac.new(key, message, digestmod=hashlib.sha256).digest()
+        ).decode()
+
+        # Authenticate User and get Access Token
+        auth_response = cognito_client.initiate_auth(
+            ClientId=client_id,
+            AuthFlow="USER_PASSWORD_AUTH",
+            AuthParameters={
+                "USERNAME": username,
+                "PASSWORD": "MyPassword123!",
+                "SECRET_HASH": secret_hash,
+            },
+        )
+        bearer_token = auth_response["AuthenticationResult"]["AccessToken"]
+        discovery_url = f"https://cognito-idp.{region}.amazonaws.com/{pool_id}/.well-known/openid-configuration"
+        # Output the required values
+        print(f"Pool id: {pool_id}")
+        print(f"Discovery URL: {discovery_url}")
+        print(f"Client ID: {client_id}")
+        print(f"Bearer Token: {bearer_token}")
+        # Return values if needed for further processing
+        cognito_config = {
+            "pool_id": pool_id,
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "secret_hash": secret_hash,
+            "bearer_token": bearer_token,
+            "discovery_url": discovery_url,
+        }
+        put_ssm_parameter("/krug/codeinterpreter/agentcore/client_id", client_id)
+        put_ssm_parameter("/krug/codeinterpreter/agentcore/pool_id", pool_id)
+        put_ssm_parameter(
+            "/krug/codeinterpreter/agentcore/cognito_discovery_url", discovery_url
+        )
+        put_ssm_parameter("/krug/codeinterpreter/agentcore/client_secret", client_secret)
+
+        save_krug_codeinterpreter_secret(json.dumps(cognito_config))
+
+        return cognito_config
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
+
+
+def cleanup_cognito_resources(pool_id):
+    """
+    Delete Cognito resources including users, app clients, and user pool
+    """
+    try:
+        # Initialize Cognito client using the same session configuration
+        region = _resolve_region()
+        cognito_client = boto3.client("cognito-idp", region_name=region)
+
+        if pool_id:
+            try:
+                # List and delete all app clients
+                clients_response = cognito_client.list_user_pool_clients(
+                    UserPoolId=pool_id, MaxResults=60
+                )
+
+                for client in clients_response["UserPoolClients"]:
+                    print(f"Deleting app client: {client['ClientName']}")
+                    cognito_client.delete_user_pool_client(
+                        UserPoolId=pool_id, ClientId=client["ClientId"]
+                    )
+
+                # List and delete all users
+                users_response = cognito_client.list_users(
+                    UserPoolId=pool_id, AttributesToGet=["email"]
+                )
+
+                for user in users_response.get("Users", []):
+                    print(f"Deleting user: {user['Username']}")
+                    cognito_client.admin_delete_user(
+                        UserPoolId=pool_id, Username=user["Username"]
+                    )
+
+                # Delete the user pool
+                print(f"Deleting user pool: {pool_id}")
+                cognito_client.delete_user_pool(UserPoolId=pool_id)
+
+                print("Successfully cleaned up all Cognito resources")
+                return True
+
+            except cognito_client.exceptions.ResourceNotFoundException:
+                print(
+                    f"User pool {pool_id} not found. It may have already been deleted."
+                )
+                return True
+
+            except Exception as e:
+                print(f"Error during cleanup: {str(e)}")
+                return False
+        else:
+            print("No matching user pool found")
+            return True
+
+    except Exception as e:
+        print(f"Error initializing cleanup: {str(e)}")
+        return False
+
+
+def reauthenticate_user(client_id, client_secret):
+    region = _resolve_region()
+    cognito_client = boto3.client("cognito-idp", region_name=region)
+    # Authenticate User and get Access Token
+
+    message = bytes(username + client_id, "utf-8")
+    key = bytes(client_secret, "utf-8")
+    secret_hash = base64.b64encode(
+        hmac.new(key, message, digestmod=hashlib.sha256).digest()
+    ).decode()
+
+    auth_response = cognito_client.initiate_auth(
+        ClientId=client_id,
+        AuthFlow="USER_PASSWORD_AUTH",
+        AuthParameters={
+            "USERNAME": username,
+            "PASSWORD": "MyPassword123!",
+            "SECRET_HASH": secret_hash,
+        },
+    )
+    bearer_token = auth_response["AuthenticationResult"]["AccessToken"]
+    return bearer_token
+
+
+def create_agentcore_runtime_execution_role():
+    region = _resolve_region()    
+    iam = boto3.client("iam", region_name=region)
+    boto_session = Session()
+    region = boto_session.region_name
+    account_id = get_aws_account_id()
+
+    # Trust relationship policy
+    trust_policy = {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "AssumeRolePolicy",
+                "Effect": "Allow",
+                "Principal": {"Service": "bedrock-agentcore.amazonaws.com"},
+                "Action": "sts:AssumeRole",
+                "Condition": {
+                    "StringEquals": {"aws:SourceAccount": account_id},
+                    "ArnLike": {
+                        "aws:SourceArn": f"arn:aws:bedrock-agentcore:{region}:{account_id}:*"
+                    },
+                },
+            }
+        ],
+    }
+
+    # IAM policy document
+    policy_document = {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "ECRImageAccess",
+                "Effect": "Allow",
+                "Action": ["ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer"],
+                "Resource": [f"arn:aws:ecr:{region}:{account_id}:repository/*"],
+            },
+            {
+                "Effect": "Allow",
+                "Action": ["logs:DescribeLogStreams", "logs:CreateLogGroup"],
+                "Resource": [
+                    f"arn:aws:logs:{region}:{account_id}:log-group:/aws/bedrock-agentcore/runtimes/*"
+                ],
+            },
+            {
+                "Effect": "Allow",
+                "Action": ["logs:DescribeLogGroups"],
+                "Resource": [f"arn:aws:logs:{region}:{account_id}:log-group:*"],
+            },
+            {
+                "Effect": "Allow",
+                "Action": ["logs:CreateLogStream", "logs:PutLogEvents"],
+                "Resource": [
+                    f"arn:aws:logs:{region}:{account_id}:log-group:/aws/bedrock-agentcore/runtimes/*:log-stream:*"
+                ],
+            },
+            {
+                "Sid": "ECRTokenAccess",
+                "Effect": "Allow",
+                "Action": ["ecr:GetAuthorizationToken"],
+                "Resource": "*",
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "xray:PutTraceSegments",
+                    "xray:PutTelemetryRecords",
+                    "xray:GetSamplingRules",
+                    "xray:GetSamplingTargets",
+                ],
+                "Resource": ["*"],
+            },
+            {
+                "Effect": "Allow",
+                "Resource": "*",
+                "Action": "cloudwatch:PutMetricData",
+                "Condition": {
+                    "StringEquals": {"cloudwatch:namespace": "bedrock-agentcore"}
+                },
+            },
+            {
+                "Sid": "GetAgentAccessToken",
+                "Effect": "Allow",
+                "Action": [
+                    "bedrock-agentcore:GetWorkloadAccessToken",
+                    "bedrock-agentcore:GetWorkloadAccessTokenForJWT",
+                    "bedrock-agentcore:GetWorkloadAccessTokenForUserId",
+                ],
+                "Resource": [
+                    f"arn:aws:bedrock-agentcore:{region}:{account_id}:workload-identity-directory/default",
+                    f"arn:aws:bedrock-agentcore:{region}:{account_id}:workload-identity-directory/default/workload-identity/customer_support_agent-*",
+                ],
+            },
+            {
+                "Sid": "BedrockModelInvocation",
+                "Effect": "Allow",
+                "Action": [
+                    "bedrock:InvokeModel",
+                    "bedrock:InvokeModelWithResponseStream",
+                    "bedrock:ApplyGuardrail",
+                    "bedrock:Retrieve",
+                ],
+                "Resource": [
+                    "arn:aws:bedrock:*::foundation-model/*",
+                    f"arn:aws:bedrock:{region}:{account_id}:*",
+                ],
+            },
+            {
+                "Sid": "AllowAgentToUseMemory",
+                "Effect": "Allow",
+                "Action": [
+                    "bedrock-agentcore:CreateEvent",
+                    "bedrock-agentcore:ListEvents",
+                    "bedrock-agentcore:GetMemoryRecord",
+                    "bedrock-agentcore:GetMemory",
+                    "bedrock-agentcore:RetrieveMemoryRecords",
+                    "bedrock-agentcore:ListMemoryRecords",
+                ],
+                "Resource": [f"arn:aws:bedrock-agentcore:{region}:{account_id}:*"],
+            },
+            {
+                "Sid": "GetMemoryId",
+                "Effect": "Allow",
+                "Action": ["ssm:GetParameter"],
+                "Resource": [f"arn:aws:ssm:{region}:{account_id}:parameter/*"],
+            },
+            {
+                "Sid": "GatewayAccess",
+                "Effect": "Allow",
+                "Action": [
+                    "bedrock-agentcore:GetGateway",
+                    "bedrock-agentcore:InvokeGateway",
+                ],
+                "Resource": [
+                    f"arn:aws:bedrock-agentcore:{region}:{account_id}:gateway/*"
+                ],
+            },
+        ],
+    }
+
+    try:
+        # Check if role already exists
+        try:
+            existing_role = iam.get_role(RoleName=role_name)
+            print(f"ℹ️ Role {role_name} already exists")
+            print(f"Role ARN: {existing_role['Role']['Arn']}")
+            return existing_role["Role"]["Arn"]
+        except iam.exceptions.NoSuchEntityException:
+            pass
+
+        # Create IAM role
+        role_response = iam.create_role(
+            RoleName=role_name,
+            AssumeRolePolicyDocument=json.dumps(trust_policy),
+            Description="IAM role for Amazon Bedrock AgentCore with required permissions",
+        )
+
+        print(f"✅ Created IAM role: {role_name}")
+        print(f"Role ARN: {role_response['Role']['Arn']}")
+
+        # Check if policy already exists
+        policy_arn = f"arn:aws:iam::{account_id}:policy/{policy_name}"
+
+        try:
+            iam.get_policy(PolicyArn=policy_arn)
+            print(f"ℹ️ Policy {policy_name} already exists")
+        except iam.exceptions.NoSuchEntityException:
+            # Create policy
+            policy_response = iam.create_policy(
+                PolicyName=policy_name,
+                PolicyDocument=json.dumps(policy_document),
+                Description="Policy for Amazon Bedrock AgentCore permissions",
+            )
+            print(f"✅ Created policy: {policy_name}")
+            policy_arn = policy_response["Policy"]["Arn"]
+
+        # Attach policy to role
+        try:
+            iam.attach_role_policy(RoleName=role_name, PolicyArn=policy_arn)
+            print("✅ Attached policy to role")
+        except Exception as e:
+            if "already attached" in str(e).lower():
+                print("ℹ️ Policy already attached to role")
+            else:
+                raise
+
+        print(f"Policy ARN: {policy_arn}")
+
+        put_ssm_parameter(
+            "/app/codeinterpreter/agentcore/runtime_execution_role_arn",
+            role_response["Role"]["Arn"],
+        )
+        return role_response["Role"]["Arn"]
+
+    except Exception as e:
+        print(f"❌ Error creating IAM role: {str(e)}")
+        return None
+
+
+def delete_agentcore_runtime_execution_role():
+    region = _resolve_region()    
+    iam = boto3.client("iam", region_name=region)
+
+    try:
+        account_id = boto3.client("sts").get_caller_identity()["Account"]
+        policy_arn = f"arn:aws:iam::{account_id}:policy/{policy_name}"
+
+        # Detach policy from role
+        try:
+            iam.detach_role_policy(RoleName=role_name, PolicyArn=policy_arn)
+            print("✅ Detached policy from role")
+        except Exception:
+            pass
+
+        # Delete role
+        try:
+            iam.delete_role(RoleName=role_name)
+            print(f"✅ Deleted role: {role_name}")
+        except Exception:
+            pass
+
+        # Delete policy
+        try:
+            iam.delete_policy(PolicyArn=policy_arn)
+            print(f"✅ Deleted policy: {policy_name}")
+        except Exception:
+            pass
+
+        delete_ssm_parameter(
+            "/app/codeinterpreter/agentcore/runtime_execution_role_arn"
+        )
+
+    except Exception as e:
+        print(f"❌ Error during cleanup: {str(e)}")
+
+
+def create_code_interpreter_role():
+    """Code Interpreter용 IAM Role 생성 (S3, Secrets Manager, SSM 권한)."""
+    region = _resolve_region()
+    iam = boto3.client("iam", region_name=region)
+    account_id = get_aws_account_id()
+
+    ci_role_name = "CodeInterpreterRole"
+
+    trust_policy = {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Principal": {"Service": "bedrock-agentcore.amazonaws.com"},
+                "Action": "sts:AssumeRole",
+            }
+        ],
+    }
+
+    permission_policy = {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": ["s3:GetObject", "s3:PutObject", "s3:ListBucket"],
+                "Resource": [
+                    f"arn:aws:s3:::codeinterpreterartifacts-{account_id}",
+                    f"arn:aws:s3:::codeinterpreterartifacts-{account_id}/*",
+                ],
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "secretsmanager:GetSecretValue",
+                    "secretsmanager:DescribeSecret",
+                ],
+                "Resource": f"arn:aws:secretsmanager:*:{account_id}:secret:*",
+            },
+            {
+                "Effect": "Allow",
+                "Action": ["ssm:GetParameter", "ssm:GetParameters"],
+                "Resource": f"arn:aws:ssm:*:{account_id}:parameter/*",
+            },
+        ],
+    }
+
+    try:
+        try:
+            existing = iam.get_role(RoleName=ci_role_name)
+            role_arn = existing["Role"]["Arn"]
+            print(f"ℹ️ Role already exists: {role_arn}")
+        except iam.exceptions.NoSuchEntityException:
+            resp = iam.create_role(
+                RoleName=ci_role_name,
+                AssumeRolePolicyDocument=json.dumps(trust_policy),
+                Description="Role for Bedrock AgentCore Code Interpreter",
+            )
+            role_arn = resp["Role"]["Arn"]
+            print(f"✅ Created role: {role_arn}")
+
+        iam.put_role_policy(
+            RoleName=ci_role_name,
+            PolicyName="CodeInterpreterPermissions",
+            PolicyDocument=json.dumps(permission_policy),
+        )
+        return role_arn
+
+    except Exception as e:
+        print(f"❌ Error creating Code Interpreter role: {str(e)}")
+        return None
+
+
+def delete_code_interpreter_role():
+    """Code Interpreter용 IAM Role 및 인라인 정책 삭제."""
+    region = _resolve_region()
+    iam = boto3.client("iam", region_name=region)
+    ci_role_name = "CodeInterpreterRole"
+
+    try:
+        iam.delete_role_policy(
+            RoleName=ci_role_name, PolicyName="CodeInterpreterPermissions"
+        )
+        print("✅ Deleted inline policy")
+    except Exception:
+        pass
+
+    try:
+        iam.delete_role(RoleName=ci_role_name)
+        print(f"✅ Deleted role: {ci_role_name}")
+    except iam.exceptions.NoSuchEntityException:
+        print(f"ℹ️ Role {ci_role_name} not found, skipping")
+    except Exception as e:
+        print(f"❌ Error deleting Code Interpreter role: {str(e)}")
+
+
+def create_code_artifacts_bucket(account_id, region="us-east-1"):
+    s3_client = boto3.client("s3", region_name=region)
+    bucket_name = f"codeinterpreterartifacts-{account_id}"
+
+    try:
+        s3_client.head_bucket(Bucket=bucket_name)
+        print(f"✅ 버킷이 이미 존재합니다: {bucket_name}")
+    except ClientError as e:
+        error_code = int(e.response["Error"]["Code"])
+        if error_code == 404:
+            print(f"🔄 버킷이 없습니다. 생성 중: {bucket_name}")
+            try:
+                if region == "us-east-1":
+                    s3_client.create_bucket(Bucket=bucket_name)
+                else:
+                    s3_client.create_bucket(
+                        Bucket=bucket_name,
+                        CreateBucketConfiguration={
+                            "LocationConstraint": region
+                        }
+                    )
+                print(f"✅ 버킷 생성 완료: {bucket_name}")
+            except ClientError as create_error:
+                print(f"❌ 버킷 생성 실패: {create_error}")
+                raise
+        elif error_code == 403:
+            print(f"❌ 버킷 접근 권한이 없습니다: {bucket_name}")
+            raise
+        else:
+            print(f"❌ 예상치 못한 오류: {e}")
+            raise
+
+    return bucket_name
+
+
+
+def local_file_cleanup():
+    # List of files to clean up
+    files_to_delete = [
+        "Dockerfile",
+        ".dockerignore",
+        ".bedrock_agentcore.yaml",
+        "customer_support_agent.py",
+        "agent_runtime.py",
+    ]
+
+    deleted_files = []
+    missing_files = []
+
+    for file in files_to_delete:
+        if os.path.exists(file):
+            try:
+                os.unlink(file)
+                deleted_files.append(file)
+                print(f"  ✅ Deleted {file}")
+            except Exception as e:
+                print(f"  ⚠️  Error deleting {file}: {e}")
+        else:
+            missing_files.append(file)
+
+    if deleted_files:
+        print(f"\n📁 Successfully deleted {len(deleted_files)} files")
+    if missing_files:
+        print(
+            f"ℹ️  {len(missing_files)} files were already missing: {', '.join(missing_files)}"
+        )

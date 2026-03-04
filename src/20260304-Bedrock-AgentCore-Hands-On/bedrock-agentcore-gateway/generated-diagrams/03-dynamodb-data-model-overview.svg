@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 550">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#232F3E"/>
+    </marker>
+    <marker id="arrowhead-gray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#999999"/>
+    </marker>
+  </defs>
+  
+  <!-- AWS Cloud Boundary -->
+  <rect x="20" y="20" width="910" height="510" rx="12" fill="none" stroke="#232F3E" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="40" y="45" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#232F3E">AWS Cloud</text>
+  
+  <!-- DynamoDB Zone -->
+  <rect x="50" y="80" width="850" height="200" rx="8" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="70" y="105" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="bold" fill="#232F3E">Amazon DynamoDB</text>
+  
+  <!-- Table 1: EmployeePermissions -->
+  <rect x="80" y="130" width="240" height="120" rx="6" fill="#FFFFFF" stroke="#DD344C" stroke-width="2"/>
+  <rect x="80" y="130" width="240" height="35" rx="6" fill="#FDE8E8"/>
+  <text x="200" y="152" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#232F3E" text-anchor="middle">EmployeePermissions</text>
+  <text x="200" y="185" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#666666" text-anchor="middle">권한 및 역할 관리</text>
+  <text x="200" y="215" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="bold">PK: EmployeeID</text>
+  
+  <!-- Table 2: Employees -->
+  <rect x="355" y="130" width="240" height="120" rx="6" fill="#FFFFFF" stroke="#147EBA" stroke-width="2"/>
+  <rect x="355" y="130" width="240" height="35" rx="6" fill="#E6F2FF"/>
+  <text x="475" y="152" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#232F3E" text-anchor="middle">Employees</text>
+  <text x="475" y="185" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#666666" text-anchor="middle">직원 마스터 데이터</text>
+  <text x="475" y="203" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#666666" text-anchor="middle">(PII 포함)</text>
+  <text x="475" y="230" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="bold">PK: employee_id</text>
+  
+  <!-- Table 3: LeaveRecords -->
+  <rect x="630" y="130" width="240" height="120" rx="6" fill="#FFFFFF" stroke="#17A589" stroke-width="2"/>
+  <rect x="630" y="130" width="240" height="35" rx="6" fill="#E8F8F5"/>
+  <text x="750" y="152" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="bold" fill="#232F3E" text-anchor="middle">LeaveRecords</text>
+  <text x="750" y="185" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#666666" text-anchor="middle">휴가 기록</text>
+  <text x="750" y="215" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="bold">PK: employee_id + leave_id</text>
+  
+  <!-- Relationships between tables -->
+  <line x1="320" y1="190" x2="355" y2="190" stroke="#232F3E" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="355" y1="190" x2="320" y2="190" stroke="#232F3E" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="337" y="180" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#666666" text-anchor="middle">employee_id</text>
+  
+  <line x1="595" y1="190" x2="630" y2="190" stroke="#232F3E" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="630" y1="190" x2="595" y2="190" stroke="#232F3E" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="612" y="180" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#666666" text-anchor="middle">employee_id</text>
+  
+  <!-- Usage Zone -->
+  <rect x="50" y="320" width="850" height="190" rx="8" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="70" y="345" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="bold" fill="#232F3E">사용처</text>
+  
+  <!-- Request Interceptor -->
+  <rect x="80" y="370" width="220" height="110" rx="6" fill="#FFFFFF" stroke="#DD344C" stroke-width="1.5"/>
+  <rect x="80" y="370" width="220" height="30" rx="6" fill="#FDE8E8"/>
+  <text x="190" y="390" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="bold" fill="#232F3E" text-anchor="middle">Request Interceptor</text>
+  <text x="190" y="420" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#666666" text-anchor="middle">권한 검증</text>
+  
+  <!-- Tool Lambdas -->
+  <rect x="365" y="370" width="220" height="110" rx="6" fill="#FFFFFF" stroke="#147EBA" stroke-width="1.5"/>
+  <rect x="365" y="370" width="220" height="30" rx="6" fill="#E6F2FF"/>
+  <text x="475" y="390" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="bold" fill="#232F3E" text-anchor="middle">Tool Lambdas</text>
+  <text x="475" y="420" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#666666" text-anchor="middle">직원 및 휴가 데이터</text>
+  <text x="475" y="438" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#666666" text-anchor="middle">조회/수정</text>
+  
+  <!-- Response Interceptor -->
+  <rect x="650" y="370" width="220" height="110" rx="6" fill="#FFFFFF" stroke="#DD344C" stroke-width="1.5"/>
+  <rect x="650" y="370" width="220" height="30" rx="6" fill="#FDE8E8"/>
+  <text x="760" y="390" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="bold" fill="#232F3E" text-anchor="middle">Response Interceptor</text>
+  <text x="760" y="420" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#666666" text-anchor="middle">PII 마스킹 +</text>
+  <text x="760" y="438" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#666666" text-anchor="middle">tools/list 필터링</text>
+  
+  <!-- Arrows from usage to tables -->
+  <line x1="190" y1="370" x2="190" y2="250" stroke="#999999" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowhead-gray)"/>
+  
+  <line x1="450" y1="370" x2="475" y2="250" stroke="#999999" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowhead-gray)"/>
+  <line x1="500" y1="370" x2="750" y2="250" stroke="#999999" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowhead-gray)"/>
+  
+  <line x1="760" y1="370" x2="220" y2="250" stroke="#999999" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowhead-gray)"/>
+</svg>
