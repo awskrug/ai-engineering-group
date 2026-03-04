@@ -1,0 +1,530 @@
+[
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "안녕하세요 민수! 오늘로 벌써 3주차예요! 😊"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "벌써 3주차라니 신기해요! 오늘은 뭐 배워요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "3주차인 오늘은 분수를 배울 건데, 먼저 지난주 2주차에 배운 나눗셈 복습부터 해볼까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "네! 좋아요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "지난주 사탕 문제 기억나요? 사탕 17개를 친구 5명에게 똑같이 나눠주면?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "5×3=15니까 3개씩 주고, 17-15=2니까 2개 남아요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "정답! 지난주에 처음에 뭘 헷갈렸었죠?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "4개씩 주려고 했는데 그러면 20개가 필요해서 안 됐어요! 원래 개수 넘는지 확인해야 해요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 잘 기억하고 있네요! 자, 오늘은 분수를 배워볼 거예요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "분수요? 위에 숫자 아래 숫자 있는 거요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 분수가 뭔지 피자로 설명해줄게요. 민수 피자 좋아하죠?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "피자 완전 좋아해요! 🍕"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "좋아요! 피자 한 판을 4조각으로 똑같이 잘랐다고 생각해봐요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "네! 4조각이요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "분수에서 아래 숫자는 '분모'라고 하는데, 전체를 몇 조각으로 나눴는지를 나타내요. 4조각이니까 분모는?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "4요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 그리고 위에 숫자는 '분자'라고 하는데, 그 중에서 몇 조각을 가졌는지를 나타내요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "아~ 분모는 전체 조각 수, 분자는 내가 가진 조각 수구나!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "정확해요! 그럼 민수가 4조각 중에 1조각을 먹으면 분수로 어떻게 써요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "전체 4조각 중에 1조각이니까... 1/4이요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! '4분의 1'이라고 읽어요. 자, 그럼 분수를 더하면 어떻게 될까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "더하기요? 그냥 위에 숫자랑 아래 숫자 다 더하면 되는 거 아니에요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "좋은 질문이에요! 한번 생각해볼게요. 1/4 + 1/4은 피자로 치면 뭘까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "4조각 중에 1조각, 또 1조각이니까... 2조각 먹은 거요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 그럼 분수로는?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "2/4요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "좋아요! 근데 여기서 중요한 거 봤어요? 아래 숫자 4는 바뀌었어요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "아니요, 그대로요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "왜 그럴까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "음... 피자 조각 수는 안 변하니까요? 여전히 4조각짜리 피자잖아요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "바로 그거예요! 분모는 조각의 크기를 나타내는 거라서 안 바뀌어요. 분자만 더하면 돼요. 이게 분수 덧셈의 핵심이에요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "아~ 분모는 그대로, 분자만 더하는 거구나!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 자, 그럼 선생님이 예시를 보여줄게요. 케이크를 6조각으로 잘랐어요. 아침에 1조각, 저녁에 2조각 먹었으면 총 얼마나 먹은 거예요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "1/6 + 2/6이니까... 분모 6은 그대로, 분자 1+2=3이니까 3/6이요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "완벽해요! 이해됐네요! 자, 그럼 쉬운 문제부터 풀어볼까요? 케이크를 6조각으로 잘랐는데 2조각을 먹었어요. 얼마나 먹은 거예요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "6조각 중에 2조각이니까 2/6이요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 자, 이제 진짜 문제 가볼게요. 피자를 4조각으로 잘랐어요. 민수가 1조각, 동생이 2조각 먹었어요. 둘이 합쳐서 전체의 얼마를 먹었을까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "민수가 1/4, 동생이 2/4 먹었으니까... 1+2=3이고, 4+4=8이니까 3/8이요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "틀렸어요! 3/8이 아니에요. 피자가 원래 몇 조각이었어요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "4조각이요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요. 근데 답에서 분모가 8이 됐네요. 피자가 갑자기 8조각이 된 거예요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "아... 아니요, 4조각인데..."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "그럼 왜 8이 나왔을까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "제가 분모도 더했어요... 4+4=8이라고..."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 민수가 '분모는 더하면 안 된다'는 걸 깜빡한 거예요. 아까 분모는 뭐라고 했죠?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "조각의 크기... 아! 조각 크기는 안 변하니까 분모는 그대로여야 해요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 민수가 '분모는 조각 크기라서 변하지 않는다'는 개념이 아직 헷갈리는구나. 피자를 실제로 생각해봐요. 4조각짜리 피자에서 민수가 1조각, 동생이 2조각 먹으면 총 몇 조각 먹은 거예요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "1+2=3이니까 3조각이요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "좋아요! 그럼 4조각짜리 피자에서 3조각 먹은 거면 분수로는?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "3/4요! 아 분모는 그대로 4인데 제가 더해버렸구나..."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "정답! 이제 맞았어요! 처음에 3/8이라고 했을 때 뭐가 잘못됐던 거예요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "분모도 더했어요. 근데 분모는 조각 크기니까 안 변해야 하는데..."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 민수가 '분수 덧셈에서 분모는 그대로 둔다'는 걸 잊어버린 거예요. 왜 분모도 더했던 것 같아요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "그냥 습관적으로 위아래 다 더했어요. 피자 생각 안 하고요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "그렇구나. 그럼 다음부터 분수 덧셈할 때 어떻게 하면 좋을까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "피자나 케이크 생각하면서 조각 수가 변하는지 확인해야겠어요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "좋은 방법이에요! 👍 자, 확인 문제 풀어볼까요? 초콜릿 바를 5조각으로 나눴어요. 아침에 2조각, 저녁에 1조각 먹었으면 총 얼마나 먹은 거예요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "2/5 + 1/5니까... 잠깐, 분모는 그대로! 5조각짜리니까 분모 5는 그대로고, 분자만 2+1=3이니까 3/5요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "정답! 분모 그대로 확인했네요! 하나 더! 도넛을 8조각으로 잘랐어요. 엄마가 3조각, 아빠가 2조각 드셨어요. 부모님이 합쳐서 얼마나 드셨을까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "3/8 + 2/8이니까... 8조각짜리 도넛이니까 분모 8은 그대로! 3+2=5니까 5/8이요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "정답! 이번엔 분모 안 더했네요! 👏"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "네! 조각 수 생각하니까 분모 더하면 안 되는 게 확실히 느껴져요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "3주차 수업 정리해볼까요? 분수 덧셈에서 제일 중요한 건 뭐예요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "분모는 조각 크기니까 그대로 두고, 분자만 더해요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 오늘 피자 문제에서 1/4 + 2/4를 3/8이라고 했다가 틀렸죠? 민수가 '분모는 조각 크기라서 변하지 않는다'는 걸 깜빡해서 분모도 더해버린 거였어요. 벌써 3주째 같은 패턴이에요. 1주차에는 올림 빼먹고, 2주차에는 원래 개수 확인 안 하고, 오늘 3주차에는 분모도 더해버렸네요. 근데 매번 '잠깐, 확인하자' 하면 바로 맞추잖아요! 1주차부터 3주차까지 곱셈, 나눗셈, 분수까지 배웠는데, 3주 동안 정말 많이 성장했어요! 분수 덧셈할 때는 실제 음식 조각 생각하기! 3주 동안 감사했습니다! 다음에 또 만나요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "네! 분모는 그대로, 분자만 더하기! 피자 생각하면 쉬워요! 3주 동안 감사했습니다 선생님!"
+      }
+    }
+  }
+]

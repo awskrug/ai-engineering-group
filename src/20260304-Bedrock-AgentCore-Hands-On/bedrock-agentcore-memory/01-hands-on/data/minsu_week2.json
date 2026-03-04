@@ -1,0 +1,578 @@
+[
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "안녕하세요 민수! 벌써 2주차네요! 오늘도 수학 열심히 해봐요! 😊"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "선생님 안녕하세요! 오늘은 뭐 배워요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "2주차인 오늘은 나눗셈을 배울 건데, 먼저 지난주 1주차에 배운 곱셈 복습부터 해볼까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "네! 좋아요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "지난주에 풀었던 김밥 문제 기억나요? 학생 23명한테 김밥 4줄씩이면 총 몇 줄이 필요할까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "82줄이요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "틀렸어요! 민수, 지난주 1주차에도 이 문제 처음에 82라고 했다가 틀렸었는데 또 같은 실수를 했네요. 그리고 또 과정 없이 바로 답만 말했어요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "아... 또요? ㅠㅠ"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "민수가 또 급하게 푼 것 같아요. 지난주에 뭘 조심하기로 했었죠?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "천천히 풀고 올림 확인하기요... 아 맞다! 3×4=12에서 2 쓰고 1 올려야 해요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 그럼 다시 천천히 풀어볼까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "네! 3×4=12니까 2 쓰고 1 올리고, 2×4=8에 1 더하면 9니까... 92줄이요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "이제 맞았어요! 근데 민수, 벌써 2주째 같은 실수를 하고 있어요. 문제 보자마자 바로 답부터 말하는 습관 때문에 올림을 자꾸 빼먹는 거예요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "선생님, 저 왜 이렇게 급한 걸까요... 천천히 해야 하는 거 아는데 자꾸 빨리 답하고 싶어져요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "빨리 답하고 싶은 마음은 좋은 거예요! 근데 그 전에 '잠깐, 확인하자'라고 스스로 멈추는 연습이 필요해요. 오늘 새로운 거 배우면서 연습해봐요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "네! 노력해볼게요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "좋아요! 오늘은 나눗셈을 배울 거예요. 나눗셈이 뭔지 알아요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "곱셈 반대로 하는 거죠?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 곱셈이 여러 번 더하는 거라면, 나눗셈은 똑같이 나눠주는 거예요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "똑같이 나눠주는 거요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "네! 예를 들어 쿠키 12개를 친구 4명이 똑같이 나눠 먹으면 한 명당 몇 개씩 먹을 수 있을까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "3개요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 근데 민수, 어떻게 3개인지 설명해줄 수 있어요? 답만 말하지 말고요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "아 네! 4×3=12니까요! 곱셈 반대로 생각했어요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "좋아요! 과정까지 말해주니까 좋네요. 이렇게 12÷4=3이라고 써요. 근데 나눗셈에는 곱셈과 다른 점이 하나 있어요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "뭔데요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "나눗셈은 항상 딱 떨어지지 않을 수도 있어요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "딱 안 떨어진다는 게 무슨 말이에요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "예를 들어볼게요. 쿠키가 12개가 아니라 13개라면? 4명이 똑같이 나눠 먹을 수 있을까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "음... 3개씩 주면 12개 쓰고... 1개가 남아요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "바로 그거예요! 이렇게 남는 걸 '나머지'라고 해요. 13÷4=3 나머지 1 이렇게 써요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "아~ 나머지! 더 나눠줄 수 없어서 남는 거구나!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "정확해요! 중요한 건, 나머지는 항상 나누는 수보다 작아야 해요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "왜요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "만약 나머지가 4 이상이면 한 번 더 나눠줄 수 있잖아요. 그럼 나머지가 아니라 몫이 늘어나야 해요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "아 그렇구나! 나머지가 나누는 수보다 크면 더 나눠줄 수 있으니까!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 자, 그럼 선생님이 예시를 보여줄게요. 17÷5를 같이 풀어봐요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "네!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "5가 17 안에 몇 번 들어갈 수 있을까요? 5×1=5, 5×2=10, 5×3=15, 5×4=20..."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "5×4=20은 17보다 크니까 안 되고... 5×3=15까지만 돼요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 그래서 몫은 3이에요. 그럼 나머지는?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "17-15=2니까 나머지는 2요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "완벽해요! 17÷5=3 나머지 2! 여기서 중요한 거, 5×4=20은 왜 안 됐어요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "17보다 크니까요! 원래 개수를 넘으면 안 돼요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 이거 꼭 기억해요. 자, 그럼 쉬운 문제부터 풀어볼까요? 연필 20자루를 5명에게 똑같이 나눠주면 한 명당 몇 자루예요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "4자루요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 근데 민수, 과정도 말해줄 수 있어요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "아 맞다! 20÷5=4니까 4자루요! 나머지 없어요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "좋아요! 자, 이제 진짜 문제! 사탕 17개를 친구 5명에게 똑같이 나눠주면 한 명당 몇 개씩 받고, 몇 개가 남을까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "4개씩이요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "틀렸어요! 민수, 또 바로 답부터 말했네요. 4개씩이면 사탕이 몇 개 필요해요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "5×4=20이니까 20개요... 아! 근데 17개밖에 없으니까 안 되네요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 민수가 '원래 개수를 넘으면 안 된다'는 걸 확인 안 하고 급하게 답한 거예요. 아까 선생님이 뭐라고 했죠? 5×4=20은 왜 안 된다고 했어요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "17보다 크니까요... 아 저 또 급하게 풀었어요 ㅠㅠ"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요. 민수가 빨리 답하고 싶어서 '원래 개수 넘는지 확인하기'를 건너뛴 거예요. 다시 천천히 풀어볼까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "네! 17÷5니까... 5×3=15는 17보다 작으니까 되고, 5×4=20은 17보다 크니까 안 되고... 그래서 3개씩이요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "좋아요! 이번엔 확인했네요! 나머지는?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "17-15=2니까 2개 남아요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "정답! 17÷5=3 나머지 2! 처음에 4개씩이라고 했을 때 뭐가 문제였어요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "원래 개수 넘는지 확인 안 하고 바로 답했어요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 민수가 급하게 푸는 습관 때문에 또 실수한 거예요. 자, 확인 문제 하나 더! 귤 25개를 바구니 4개에 똑같이 담으면 한 바구니에 몇 개씩 담고, 몇 개가 남을까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "25÷4니까... 잠깐, 확인하자! 4×6=24는 25보다 작으니까 되고, 4×7=28은 25보다 크니까 안 되고... 6개씩이요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "오! 이번엔 스스로 '잠깐, 확인하자'라고 했네요! 👏 나머지는?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "25-24=1이니까 1개 남아요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "정답! 25÷4=6 나머지 1! 이번엔 급하게 안 풀고 확인하니까 바로 맞췄네요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "네! '잠깐, 확인하자' 하니까 실수 안 해요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "2주차 수업 정리해볼까요? 나눗셈에서 제일 중요한 건 뭐예요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "딱 안 떨어지면 나머지가 생기고, 나머지는 나누는 수보다 작아야 해요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 그리고 민수한테 중요한 거 하나 더?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "급하게 풀지 말고 '잠깐, 확인하자' 하기요! 오늘도 사탕 문제에서 급하게 풀어서 4개씩이라고 틀렸어요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 민수가 급하게 푸는 습관 때문에 1주차 곱셈에서도, 오늘 2주차 나눗셈에서도 실수했어요. 근데 마지막 문제에서 '잠깐, 확인하자' 하니까 바로 맞췄죠? 이 습관 계속 연습해요! 다음 주 3주차에는 분수 배울 건데, 그때도 '잠깐, 확인하자' 잊지 말기! 다음 시간에 또 만나요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "네! '잠깐, 확인하자' 꼭 기억할게요! 감사합니다 선생님!"
+      }
+    }
+  }
+]

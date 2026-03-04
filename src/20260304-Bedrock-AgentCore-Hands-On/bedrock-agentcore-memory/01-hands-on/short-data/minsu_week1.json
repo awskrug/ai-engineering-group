@@ -1,0 +1,274 @@
+[
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "안녕하세요 민수! 오늘이 첫 번째 수업이에요! 열심히 해봐요! 😊"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "안녕하세요 선생님! 오늘은 뭐 배워요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "1주차인 오늘은 두 자리 수와 한 자리 수의 곱셈을 배워볼 거예요. 곱셈이 뭔지 알아요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "음... 더하기 여러 번 하는 거 아니에요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 근데 12×100이면 12를 100번 더해야 하니까 너무 오래 걸리죠? 그래서 '세로셈'이라는 빠른 방법이 있어요. 일의 자리부터 차례대로 계산하는 거예요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "세로셈이요? 어떻게 하는 건데요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "12×3을 예로 들어볼게요. 먼저 일의 자리 2×3은 6, 십의 자리 1×3은 3이니까 답은 36이에요. 근데 중요한 건, 일의 자리 계산 결과가 10이 넘으면 십의 자리로 '올려야' 해요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "올린다고요? 그게 뭐예요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "14×3을 같이 풀어봐요. 일의 자리 4×3은?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "12요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "좋아요! 12는 10이 넘으니까 2는 일의 자리에 쓰고, 1은 십의 자리로 올려요. 그 다음 십의 자리 1×3은 3인데, 여기에 올린 1을 더하면?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "4요! 아 그래서 올림을 나중에 더하는 거구나!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "바로 그거예요! 14×3=42가 돼요. 자, 그럼 문제 풀어볼까요? 민수네 반 학생 23명이 현장학습을 가요. 학생 1명당 김밥 4줄씩 준비하면 김밥은 총 몇 줄 필요할까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "82줄이요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "틀렸어요! 민수, 과정 없이 바로 답만 말했네요. 어떻게 82가 나왔는지 설명해줄 수 있어요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "23×4니까... 3×4=12, 2×4=8이니까 82요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "아, 민수가 '올림' 개념을 깜빡했구나! 12를 그냥 통째로 쓰면 안 돼요. 3×4=12니까 어떻게 해야 할까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "아... 2 쓰고 1 올려야 하는 거구나..."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "그렇죠! 다시 천천히 해볼까요? 일의 자리 3×4는?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "12요! 2 쓰고 1 올려요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "좋아요! 십의 자리 2×4는 8인데, 올린 1을 더하면?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "9! 그래서 92줄이요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "정답! 처음에 82라고 했을 때 뭐가 빠졌던 거예요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "12에서 1을 올리는 걸 안 하고 그냥 12를 썼어요. 빨리 답하고 싶어서요."
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요. 민수가 급하게 푸는 습관이 있는 것 같아요. 다음부터 어떻게 하면 좋을까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "천천히 풀고, 일의 자리 계산하고 10 넘는지 꼭 확인해야겠어요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "좋은 방법이에요! 👍 확인 문제 하나 더! 빵집에서 쿠키를 한 판에 15개씩 굽는대요. 6판을 구우면 쿠키가 몇 개일까요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "15×6이니까... 잠깐, 천천히! 5×6=30이요. 0 쓰고 3 올려요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "오, 이번엔 스스로 '천천히'라고 했네요! 좋아요! 그 다음은?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "1×6=6이고, 올린 3 더하면 9! 그래서 90개요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "정답! 이번엔 급하게 안 풀고 천천히 확인하니까 올림 안 까먹었네요! 👏 1주차 정리해볼까요? 세로셈 곱셈에서 제일 중요한 건 뭐예요?"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "일의 자리부터 계산하고, 10이 넘으면 올림하는 거요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "ASSISTANT",
+      "content": {
+        "text": "맞아요! 그리고 민수한테 중요한 거 하나 더 있어요. 급하게 풀지 말고 천천히 풀기! 오늘 김밥 문제에서 23×4를 82라고 했다가 틀렸죠? 급하게 풀어서 올림을 깜빡한 거였어요. 앞으로는 천천히, 과정 확인하면서 풀기! 다음 주 2주차에는 나눗셈 배울 건데, 그때도 천천히 푸는 연습 해봐요! 다음 시간에 또 만나요!"
+      }
+    }
+  },
+  {
+    "conversational": {
+      "role": "USER",
+      "content": {
+        "text": "네! 천천히 풀고 올림 꼭 확인할게요! 감사합니다 선생님!"
+      }
+    }
+  }
+]

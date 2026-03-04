@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pydantic>=2.0.0
+requests
+boto3
+python-multipart
+python-dotenv
+strands-agents
+mcp>=1.23.0,<1.23.1
+sse-starlette
