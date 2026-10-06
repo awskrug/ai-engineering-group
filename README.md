@@ -23,6 +23,14 @@ AI 엔지니어링 소모임은 생성형 AI 시대에 새롭게 바뀌는 실�
 
 ### 2026년 모임
 
+#### 2026년 9월 - AWS 인프라와 AI 워크로드의 통합 모니터링
+* **날짜**: 2026년 9월 29일
+* **모임 링크**: [Meetup](https://www.meetup.com/awskrug/events/316405144/)
+* **발표내용**:
+  * **AWS Bedrock과 Strands SDK를 활용한 Agentic AI Observability (나요안나, New Relic Senior Technical Success Manager)** [발표자료](./docs/260929-Agentic_AI_Observability_with_Bedrock_and_Strands_SDK.pdf)
+    * AWS 인프라와 AI 워크로드를 하나의 관점에서 통합 모니터링하는 방법
+    * Amazon Bedrock과 Strands SDK로 구성한 Agentic AI 애플리케이션의 Observability 확보 전략
+
 #### 2026년 8월 - OpenClaw on AWS Workshop
 * **날짜**: 2026년 8월 20일
 * **모임 링크**: [Meetup](https://www.meetup.com/awskrug/events/315786451/)
