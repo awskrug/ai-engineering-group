@@ -23,6 +23,13 @@ AI 엔지니어링 소모임은 생성형 AI 시대에 새롭게 바뀌는 실�
 
 ### 2026년 모임
 
+#### 2026년 8월 - OpenClaw on AWS Workshop
+* **날짜**: 2026년 8월 20일
+* **모임 링크**: [Meetup](https://www.meetup.com/awskrug/events/315786451/)
+* **발표내용**:
+  * **OpenClaw on AWS - Hands-on Workshop (이은지, AI Engineering 오거나이저)** [실습자료](https://catalog.us-east-1.prod.workshops.aws/workshops/baf9fb59-8e16-48cb-b399-572e7f5ad44f/en-US)
+    * AWS 환경에서 OpenClaw 기반 AI 에이전트 구축 및 커스터마이징 실습
+
 #### 2026년 7월 - 실전 GenAI 애플리케이션 만들기
 * **날짜**: 2026년 7월 29일
 * **모임 링크**: [Meetup](https://www.meetup.com/awskrug/events/315678453/)
