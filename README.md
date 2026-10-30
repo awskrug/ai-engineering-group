@@ -23,6 +23,12 @@ AI 엔지니어링 소모임은 생성형 AI 시대에 새롭게 바뀌는 실�
 
 ### 2026년 모임
 
+#### 2026년 10월 - 문서를 이해하는 실전 AI 에이전트
+* **날짜**: 2026년 10월 27일
+* **모임 링크**: [Meetup](https://www.meetup.com/awskrug/events/316967026/)
+* **발표내용**:
+  * **문서를 이해하는 실전 AI 에이전트 - aws-samples의 IDP를 서울 리전 격리 VPC에 올려 본 이야기 (김재윤, SK Inc. AX)** [발표자료](./docs/261027-Document_Understanding_AI_Agent_IDP.pdf), [샘플 코드](https://github.com/aws-samples/sample-aws-idp-pipeline)
+
 #### 2026년 9월 - AWS 인프라와 AI 워크로드의 통합 모니터링
 * **날짜**: 2026년 9월 29일
 * **모임 링크**: [Meetup](https://www.meetup.com/awskrug/events/316405144/)
