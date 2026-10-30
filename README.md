@@ -28,6 +28,10 @@ AI 엔지니어링 소모임은 생성형 AI 시대에 새롭게 바뀌는 실�
 * **모임 링크**: [Meetup](https://www.meetup.com/awskrug/events/316967026/)
 * **발표내용**:
   * **문서를 이해하는 실전 AI 에이전트 - aws-samples의 IDP를 서울 리전 격리 VPC에 올려 본 이야기 (김재윤, SK Inc. AX)** [발표자료](./docs/261027-Document_Understanding_AI_Agent_IDP.pdf), [샘플 코드](https://github.com/aws-samples/sample-aws-idp-pipeline)
+    * aws-samples IDP 파이프라인 구조: OCR·BDA·Transcribe 기반 문서 분석, LanceDB 벡터 검색과 Neptune 지식 그래프, AgentCore 기반 에이전트
+    * 라이브 데모: 도면 PDF 분석, 도면 질의, 자재목록 엑셀 SQL 질의, 도면과 목록 간 불일치 찾기
+    * 서울 리전 격리 VPC로 옮기며 바꾼 13가지: 서울에 없는 서비스 우회, 코드에 고정된 리전 버그 수정, 운영을 위한 변경
+    * 격리 VPC 배포 후 겪은 문제들(런타임 다운로드, Private DNS, 한글 인코딩, 쿼터·동시성), LLM 출력 한도를 넘는 대형 도면 처리, 사내 도입 전 확인할 것
 
 #### 2026년 9월 - AWS 인프라와 AI 워크로드의 통합 모니터링
 * **날짜**: 2026년 9월 29일
